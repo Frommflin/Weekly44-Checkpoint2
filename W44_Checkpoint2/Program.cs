@@ -4,15 +4,49 @@
  *  --------------------------------------------
 */
 
+
 Console.WriteLine("Enter your product. To exit write 'Q'.");
+string input;
 
-string category;
-string productName;
-string price;
+while (true)
+{
+    string category = "";
+    string productName = "";
+    int price = 0;
 
-Console.Write("Category: ");
-category = Console.ReadLine();
-Console.Write("Product name: ");
-productName = Console.ReadLine();
-Console.Write("Price: ");
-price = Console.ReadLine();
+    Console.Write("Category: ");
+    input = Console.ReadLine();
+    category = input.Trim();
+    if (input.Trim().ToLower() == "q")
+    {
+        break;
+    }
+
+    Console.Write("Product name: ");
+    input = Console.ReadLine();
+    productName = input.Trim();
+    if (input.Trim().ToLower() == "q")
+    {
+        break;
+    }
+
+    Console.Write("Price: ");
+    input = Console.ReadLine();
+
+    if (input.Trim().ToLower() == "q")
+    {
+        break;
+    }
+    else if (int.TryParse(input, out int value))
+    {
+        price = value;
+    }
+    else
+    {
+        Console.WriteLine("Price has to be a number! Automatically set to 0");
+        price = 0;
+    }
+
+
+    Console.WriteLine($"Entered product: {productName} in category {category}. Item price is {price}");
+}
