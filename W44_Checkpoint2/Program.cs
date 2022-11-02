@@ -5,8 +5,11 @@
 */
 
 
+using W44_Checkpoint2;
+
 Console.WriteLine("Enter your product. To exit write 'Q'.");
 string input;
+List<Product> products = new List<Product>();
 
 while (true)
 {
@@ -47,6 +50,5 @@ while (true)
         price = 0;
     }
 
-
-    Console.WriteLine($"Entered product: {productName} in category {category}. Item price is {price}");
+    products.Add(new Product(category, productName, price));
 }
