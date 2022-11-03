@@ -77,6 +77,7 @@ foreach (Product product in products)
  *  --------------------------------------------
 */
 List<Product> products = new List<Product>();
+int totalSum = 0;
 
 Console.WriteLine("Enter your product. To exit write 'Q'.");
 
@@ -92,4 +93,7 @@ Console.WriteLine("------------------------------------------------------------"
 foreach (Product product in orderedProducts)
 {
     Console.WriteLine(product.Category.PadRight(20) + product.Name.PadRight(20) + product.Price);
+    totalSum += product.Price;
 }
+Console.WriteLine();
+Console.WriteLine("".PadRight(20) + "Total price: ".PadRight(20) + totalSum);
