@@ -11,7 +11,7 @@ using W44_Checkpoint2;
  *  --------------------------------------------
 */
 
-Console.WriteLine("".PadRight(20) + "Total price: ".PadRight(20) + totalSum);
+
 namespace W44_Checkpoint2
 {
     internal class Methods
