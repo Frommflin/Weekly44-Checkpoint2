@@ -110,23 +110,29 @@ Console.WriteLine("".PadRight(20) + "Total price: ".PadRight(20) + totalSum);
  *  --------------------------------------------
 */
 List<Product> products = new List<Product>();
-int totalSum = 0;
+string input;
 
-Console.WriteLine("Enter your product. To exit write 'Q'.");
+Methods.Menu(1);
 
 products.AddRange(Methods.EnterItems());
 List<Product> orderedProducts = products.OrderBy(p => p.Price).ToList();
 
-Console.WriteLine();
-Console.WriteLine();
-Console.WriteLine("List of products:");
-Console.WriteLine();
-Console.WriteLine("Category".PadRight(20) + "Product".PadRight(20) + "Price");
-Console.WriteLine("------------------------------------------------------------");
-foreach (Product product in orderedProducts)
+Methods.PrintList(orderedProducts);
+
+while (true)
 {
-    Console.WriteLine(product.Category.PadRight(20) + product.Name.PadRight(20) + product.Price);
-    totalSum += product.Price;
+    Methods.Menu(2);
+    input = Console.ReadLine();
+    input.Trim();
+
+    if (input.ToLower() == "q")
+    {
+        break;
+    } 
+    else if(input.ToLower() == "a")
+    {
+        products.AddRange(Methods.EnterItems());
+        orderedProducts = products.OrderBy(p => p.Price).ToList();
+        Methods.PrintList(orderedProducts);
+    }
 }
-Console.WriteLine();
-Console.WriteLine("".PadRight(20) + "Total price: ".PadRight(20) + totalSum);

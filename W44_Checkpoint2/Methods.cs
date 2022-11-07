@@ -79,6 +79,20 @@ namespace W44_Checkpoint2
          *  ---              Level 3                 ---
          *  --------------------------------------------
         */
+        public static void Menu(int i)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            if(i == 1)
+            {
+                Console.WriteLine("Enter your product. To exit write 'Q'.");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Type 'A' to add more products, 'Q' to quit");
+            }
+            Console.ResetColor();
+        }
 
         public static List<Product> EnterItems()
         {
@@ -197,6 +211,25 @@ namespace W44_Checkpoint2
                 Console.WriteLine("Product successfully added");
             }
             return products;
+        }
+
+        public static void PrintList(List<Product> products)
+        {
+            int totalSum = 0;
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("List of products:");
+            Console.WriteLine();
+            Console.WriteLine("Category".PadRight(20) + "Product".PadRight(20) + "Price");
+            Console.WriteLine("------------------------------------------------------------");
+            foreach (Product product in products)
+            {
+                Console.WriteLine(product.Category.PadRight(20) + product.Name.PadRight(20) + product.Price);
+                totalSum += product.Price;
+            }
+            Console.WriteLine();
+            Console.WriteLine("".PadRight(20) + "Total price: ".PadRight(20) + totalSum);
         }
     }
 }
