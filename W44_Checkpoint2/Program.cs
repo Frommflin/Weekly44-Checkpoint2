@@ -71,9 +71,42 @@ foreach (Product product in products)
 }
 */
 
+
+
 /*  
  *  --------------------------------------------
  *  ---              Level 2                 ---
+ *  --------------------------------------------
+*/
+/* 
+List<Product> products = new List<Product>();
+int totalSum = 0;
+
+Console.WriteLine("Enter your product. To exit write 'Q'.");
+
+products.AddRange(Methods.EnterItems());
+List<Product> orderedProducts = products.OrderBy(p => p.Price).ToList();
+
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine("List of products:");
+Console.WriteLine();
+Console.WriteLine("Category".PadRight(20) + "Product".PadRight(20) + "Price");
+Console.WriteLine("------------------------------------------------------------");
+foreach (Product product in orderedProducts)
+{
+    Console.WriteLine(product.Category.PadRight(20) + product.Name.PadRight(20) + product.Price);
+    totalSum += product.Price;
+}
+Console.WriteLine();
+Console.WriteLine("".PadRight(20) + "Total price: ".PadRight(20) + totalSum);
+*/
+
+
+
+/*  
+ *  --------------------------------------------
+ *  ---              Level 3                 ---
  *  --------------------------------------------
 */
 List<Product> products = new List<Product>();
