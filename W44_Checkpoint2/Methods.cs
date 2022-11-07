@@ -87,6 +87,8 @@ namespace W44_Checkpoint2
 
             while (true)
             {
+                Console.ResetColor(); // Always start with resetting console textcolor
+
                 string category = "";
                 string productName = "";
                 int price = 0;
@@ -94,10 +96,12 @@ namespace W44_Checkpoint2
                 // do-while loops: preventing fields from being left empty
                 do
                 {
+                    Console.ResetColor();
                     Console.Write("Category: ");
                     input = Console.ReadLine();
                     input.Trim(); // Always removes starting or ending whitespaces
 
+                    Console.ForegroundColor = ConsoleColor.Red;
                     if (String.IsNullOrEmpty(input) || input == " ")
                     {
                         Console.WriteLine("Field can't be left empty!");
@@ -115,14 +119,18 @@ namespace W44_Checkpoint2
                 } while (category == ""); 
                 if (input.ToLower() == "q")
                 {
+                    Console.ResetColor();
                     break;
                 }
 
                 do
                 {
+                    Console.ResetColor();
                     Console.Write("Product name: ");
                     input = Console.ReadLine();
                     input.Trim(); // Always removes starting or ending whitespaces
+
+                    Console.ForegroundColor = ConsoleColor.Red;
                     if (String.IsNullOrEmpty(input) || input == " ")
                     {
                         Console.WriteLine("Field can't be left empty!");
@@ -140,16 +148,19 @@ namespace W44_Checkpoint2
                 } while (productName == "");
                 if (input.ToLower() == "q")
                 {
+                    Console.ResetColor();
                     break;
                 }
 
                 // do-while preventing price from being 0 or a non-integer
                 do 
                 {
+                    Console.ResetColor();
                     Console.Write("Price: ");
                     input = Console.ReadLine();
                     input.Trim(); // Always removes starting or ending whitespaces
 
+                    Console.ForegroundColor = ConsoleColor.Red;
                     if (input.ToLower() == "q")
                     {
                         break;
@@ -176,11 +187,14 @@ namespace W44_Checkpoint2
                 } while (price == 0);
                 if (input.ToLower() == "q")
                 {
+                    Console.ResetColor();
                     break;
                 }
 
 
                 products.Add(new Product(category, productName, price));
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Product successfully added");
             }
             return products;
         }
