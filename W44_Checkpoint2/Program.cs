@@ -109,6 +109,8 @@ Console.WriteLine("".PadRight(20) + "Total price: ".PadRight(20) + totalSum);
  *  ---              Level 3                 ---
  *  --------------------------------------------
 */
+
+/*
 List<Product> products = new List<Product>();
 string input;
 
@@ -134,5 +136,45 @@ while (true)
         products.AddRange(Methods.EnterItems());
         orderedProducts = products.OrderBy(p => p.Price).ToList();
         Methods.PrintList(orderedProducts);
+    }
+}
+*/
+
+
+
+/*  
+ *  --------------------------------------------
+ *  ---              Level 4                 ---
+ *  --------------------------------------------
+*/
+List<Product> products = new List<Product>();
+string input;
+
+Methods.Menu(1);
+
+products.AddRange(Methods.EnterItems());
+List<Product> orderedProducts = products.OrderBy(p => p.Price).ToList();
+
+Methods.PrintList(orderedProducts);
+
+while (true)
+{
+    Methods.Menu(2);
+    input = Console.ReadLine();
+    input.Trim();
+
+    if (input.ToLower() == "q")
+    {
+        break;
+    }
+    else if (input.ToLower() == "a")
+    {
+        products.AddRange(Methods.EnterItems());
+        orderedProducts = products.OrderBy(p => p.Price).ToList();
+        Methods.PrintList(orderedProducts);
+    }
+    else if (input.ToLower() == "s")
+    {
+        Methods.SearchProduct(orderedProducts);
     }
 }
